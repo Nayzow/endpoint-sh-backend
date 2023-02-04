@@ -523,30 +523,36 @@ VALUES (1, 1, 'Presentation Cisco', '<h2>Ontroduction</h2>
 <p>C# est un langage de programmation populaire et largement utilisé pour le développement d''applications Windows. Il
     dispose d''une grande communauté de développeurs qui contribuent à son dével
 ', ''),
-       (10, 10, 'Presentation Javascript', '<h2>Introduction</h2>
+       (10, 10, 'Presentation Javascript', '<h2>JavaScript est un langage de programmation de scripts principalement employé dans les pages web interactives mais peut également être utilisé dans les serveurs. C''est un langage orienté objet à prototype.</h2>
+<p>
 
-<p>JavaScript est un langage de programmation de script côté client utilisé principalement pour créer des pages Web
-    interactives et des applications Web. Il a été créé en 1995 par Netscape et est devenue une norme de facto pour la
-    création de pages Web dynamiques.</p>
+JavaScript est un langage de programmation de scripts principalement employé dans les pages web interactives mais peut également être utilisé dans les serveurs. C''est un langage orienté objet à prototype.
 
-<h2>Caractéristiques de JavaScript</h2>
 
-<p>JavaScript est un langage de programmation de script côté client, ce qui signifie qu''il s''exécute sur le navigateur
-    Web de l''utilisateur et non sur le serveur Web. Il est également un langage de programmation orienté objet, ce qui
-    signifie qu''il permet de définir et de manipuler des objets dans un programme. JavaScript est souvent utilisé
-    conjointement avec HTML et CSS pour créer des pages Web interactives.</p>
 
-<h2>Utilisation de JavaScript</h2>
+JavaScript est un langage de programmation qui a été créé afin d''améliorer l''interactivité des pages web. Il est aujourd''hui principalement utilisé pour les sites internet et les applications web. C''est un langage orienté objet à prototype, ce qui signifie qu''il est possible de créer des objets en JavaScript et de les modifier ensuite.
 
-<p>JavaScript est principalement utilisé pour créer des pages Web interactives et des applications Web. Il est également
-    utilisé pour développer des applications mobiles hybrides et des applications de bureau via des outils tels que
-    Electron.</p>
 
-<h2>Bénéfices de JavaScript</h2>
 
-<p>JavaScript est un langage de programmation très populaire et largement utilisé dans le monde de l''informatique. Il
-    est facile à apprendre et à utiliser, et est compatible avec de nombreux navigateurs Web. JavaScript permet
-    également de créer des pages Web interactives et des applications Web de manière rap
+JavaScript est un langage facile à apprendre pour les développeurs expérimentés, car il partage de nombreuses similitudes avec d''autres langages de programmation populaires. De plus, JavaScript est un langage open source, ce qui signifie que tout le monde peut y contribuer.
+
+
+
+JavaScript est également optimisé pour le référencement web, ce qui le rend idéal pour les développeurs soucieux de l''optimisation de leur site. En effet, les moteurs de recherche accordent une importance particulière aux sites qui utilisent ce langage, car ils savent qu''ils sont généralement plus interactifs et contiennent donc plus d''informations pour les internautes.</p>
+<h2>JavaScript a été créé en 1995 par Brendan Eich alors qu''il travaillait pour Netscape. JavaScript est devenu une spécification du standard ECMA-262 en juin 1997. La dernière version de cette spécification est la 5ème édition publiée en décembre 2009. La 6ème édition est en cours de développement.</h2>
+<p>
+JavaScript est un langage de programmation de scripts principalement employé dans les pages web interactives mais peut également être utilisé côté serveur. C''est un langage orienté objet à prototype. JavaScript est un langage à typage dynamique et faible.
+JavaScript est souvent confondu avec Java. Java est un langage de programmation orienté objet permettant de créer des applications. JavaScript est un langage de script utilisé principalement dans les navigateurs web afin d''améliorer l''interactivité des pages.
+JavaScript est le langage de programmation le plus utilisé au monde. Selon le site StatCounter, JavaScript est utilisé par 92,5% des sites web du monde entier.</p>
+<h2>JavaScript est généralement exécuté par le navigateur web sur le client. Cela permet aux développeurs de créer des pages web interactives et de fournir une meilleure expérience utilisateur. Les scripts JavaScript peuvent également être exécutés sur le serveur à l''aide de Node.js.</h2>
+<p>
+
+JavaScript est un langage de programmation de scripts utilisé principalement pour créer des pages web interactives. Il est exécuté par le navigateur web sur le client, ce qui permet aux développeurs de créer des pages web interactives et de fournir une meilleure expérience utilisateur. Les scripts JavaScript peuvent également être exécutés sur le serveur à l''aide de Node.js.</p>
+<h2>JavaScript est un langage facile à apprendre. De nombreuses ressources sont disponibles sur internet pour apprendre le langage.</h2>
+<p>
+
+JavaScript est un langage de programmation facile à apprendre. De nombreuses ressources sont disponibles sur internet pour apprendre le langage. JavaScript est un langage de programmation populaire et puissant. Il est utilisé par de nombreux développeurs web pour créer des sites interactifs et des applications web.</p>
+
 ', ''),
        (11, 11, 'Presentation Java', '<h2>Introduction</h2>
 
