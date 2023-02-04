@@ -17,7 +17,7 @@ git clone https://github.com/Nayzow/DocumentationApi
 resources/sql/database.sql
 ```
 
-### Installation
+### 3. Installation
 
 #### Installation avec Maven
 
