@@ -1,7 +1,7 @@
 # DocumentationApi
 
 API Java Springboot qui renvoie des données relatives à de la documentation informatique.
-Vous pouvez y retrouver des articles écrits par mes soins ainsi les principales commandes des technologies que j'utilise.
+Vous pouvez y retrouver des articles écrits par mes soins ainsi les principales technologies que j'utilise.
 
 ## Get Started
 
