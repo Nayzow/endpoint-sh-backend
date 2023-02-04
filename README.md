@@ -3,23 +3,25 @@
 API Java Springboot qui renvoie des données relatives à de la documentation informatique.
 Vous pouvez y retrouver des articles écrits par mes soins ainsi les principales commandes des technologies que j'utilise.
 
-## Installation
+## Get Started
 
-### Clonez le dépôt du projet en utilisant la commande
+### 1. Clonez le dépôt du projet en utilisant la commande
 
 ```bash
 git clone https://github.com/Nayzow/DocumentationApi
 ```
 
-### Créer une base de donnée avec le fichier sql :
+### 2. Créer une base de donnée avec le fichier sql :
 
 ```bash
 resources/sql/database.sql
 ```
 
-### Installation avec Maven
+### Installation
 
-1À la racine du projet, installez les dépendances en utilisant la commande
+#### Installation avec Maven
+
+1. À la racine du projet, installez les dépendances en utilisant la commande
 
 ```bash
 mvn clean install
@@ -31,7 +33,7 @@ mvn clean install
 mvn spring-boot:run
 ```
 
-### Installation avec Docker
+#### Installation avec Docker
 
 1. Build l'image Docker
 
@@ -45,7 +47,7 @@ docker build -t documentation-api .
 docker run -p 8080:8080 documentation-api
 ```
 
-## Routes de l'application
+### Routes de l'application
 
 ```
 /articles -> renvoie toutes les technologies sur lesquels des articles ont étés écrits.
