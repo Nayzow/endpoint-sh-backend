@@ -1,7 +1,7 @@
 # Endpoint.sh API
 
 API Java Springboot qui renvoie des données relatives à de la documentation informatique.
-Vous pouvez y retrouver des articles écrits par mes soins ainsi les principales technologies que j'utilise.
+Vous pouvez y retrouver des articles écrits par mes soins ainsi que les principales technologies que j'utilise.
 
 Lien de l'application web Angular pour afficher les données : https://github.com/Nayzow/endpoint-sh-frontend
 
