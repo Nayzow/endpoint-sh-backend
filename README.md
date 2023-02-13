@@ -46,7 +46,7 @@ docker build -t endpoint-sh-api .
 ####  2. Run le conteneur Docker
 
 ```bash
-docker run -p 8080:8080 endpoint-sh-api
+docker run --name dns-services-api -p 8080:8080 -d endpoint-sh-api
 ```
 
 ### Routes de l'application
