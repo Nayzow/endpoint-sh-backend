@@ -1,7 +1,9 @@
-# DocumentationApi
+# Endpoint.sh API
 
 API Java Springboot qui renvoie des données relatives à de la documentation informatique.
 Vous pouvez y retrouver des articles écrits par mes soins ainsi les principales technologies que j'utilise.
+
+Lien de l'application web Angular pour afficher les données : https://github.com/Nayzow/endpoint-sh-frontend
 
 ## Get Started
 
@@ -50,10 +52,25 @@ docker run -p 8080:8080 documentation-api
 ### Routes de l'application
 
 ```
-/articles -> renvoie toutes les technologies sur lesquels des articles ont étés écrits.
-/articles/{id} -> renvoie l'article avec un id donné.
-/articles/{technology} -> renvoie touts les articles liés à une technologie.
-/commands -> renvoie toutes les technologies sur lesquels des commandes ont étés répertoriées.
-/commands/{id} -> renvoie la commande avec un id donné.
-/commands/{technology} -> renvoie toutes les commandes répértoriées sur une technologie donnée.
+/articles : renvoie toutes les technologies sur lesquels des articles ont étés écrits.
+```
+
+```
+/articles/{id} : renvoie l'article avec un id donné.
+```
+
+```
+/articles/{technology} : renvoie touts les articles liés à une technologie.
+```
+
+```
+/commands : renvoie toutes les technologies sur lesquels des commandes ont étés répertoriées.
+```
+
+```
+/commands/{id} : renvoie la commande avec un id donné.
+```
+
+```
+/commands/{technology} : renvoie toutes les commandes répértoriées sur une technologie donnée.
 ```
