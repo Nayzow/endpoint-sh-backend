@@ -29,7 +29,7 @@ CREATE TABLE documentation.commands
 (
     id            BIGINT AUTO_INCREMENT NOT NULL,
     id_technology BIGINT                NOT NULL,
-    name          VARCHAR(50)           NOT NULL,
+    name          VARCHAR(100)           NOT NULL,
     description   VARCHAR(500)          NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (id_technology) REFERENCES documentation.technologies (id)
@@ -209,11 +209,181 @@ VALUES
     ('az functionapp', 7, 'Gère les applications de fonction'),
     ('az cdn', 7, 'Gère les réseaux de diffusion de contenu'),
     ('az cosmosdb', 7, 'Gère les bases de données Cosmos'),
-    ('az sql', 7, 'Gère les bases de données SQL')
+    ('az sql', 7, 'Gère les bases de données SQL'),
+
+    # Angular
+    ('ng new', 8, 'Crée un nouveau projet Angular.'),
+    ('ng generate component', 8, 'Génère un nouveau composant Angular.'),
+    ('ng generate service', 8, 'Génère un nouveau service Angular.'),
+    ('ng generate directive', 8, 'Génère une nouvelle directive Angular.'),
+    ('ng generate module', 8, 'Génère un nouveau module Angular.'),
+    ('ng build', 8, 'Compile l''application Angular en un ensemble de fichiers JavaScript pour le déploiement.'),
+    ('ng serve', 8, 'Démarre le serveur de développement pour l''application Angular.'),
+    ('ng test', 8, 'Exécute les tests unitaires pour l''application Angular.'),
+    ('ng lint', 8, 'Analyse le code pour détecter les erreurs de syntaxe et les pratiques de codage non recommandées.'),
+    ('ng deploy', 8, 'Déploie l''application Angular sur une plateforme d''hébergement.'),
+
+    # C-sharp
+    ('dotnet new', 9, 'Crée un nouveau projet C#.'),
+    ('dotnet run', 9, 'Exécute l''application C#.'),
+    ('dotnet build', 9, 'Compile l''application C# en un ensemble de fichiers exécutables.'),
+    ('dotnet publish', 9, 'Publie l''application C# sous forme de fichiers exécutables et de fichiers de dépendances.'),
+    ('dotnet test', 9, 'Exécute les tests unitaires pour l''application C#.'),
+    ('dotnet restore', 9, 'Restaure les packages NuGet pour l''application C#.'),
+    ('dotnet add package', 9, 'Ajoute un package NuGet à l''application C#.'),
+    ('dotnet remove package', 9, 'Supprime un package NuGet de l''application C#.'),
+    ('dotnet watch run', 9, 'Démarre le serveur de développement pour l''application C# et surveille les modifications du code source.'),
+    ('dotnet ef migrations add', 9, 'Ajoute une migration à la base de données pour l''application C#.'),
+
+    # Javascript
+    ('npm init ', 10, 'Initialise un nouveau projet JavaScript et crée un fichier package.json.'),
+    ('npm install', 10, 'Installe les dépendances pour le projet JavaScript à partir du fichier package.json.'),
+    ('npm start', 10, 'Démarre le serveur de développement pour le projet JavaScript.'),
+    ('npm run build', 10, 'Compile le projet JavaScript en un ensemble de fichiers pour le déploiement.'),
+    ('npm test', 10, 'Exécute les tests unitaires pour le projet JavaScript.'),
+    ('npm run lint', 10, 'Analyse le code pour détecter les erreurs de syntaxe et les pratiques de codage non recommandées.'),
+    ('npm run watch', 10, 'Surveille les modifications du code source et recompile automatiquement le projet JavaScript.'),
+    ('npm install -g', 10, 'Installe un package JavaScript global sur votre système.'),
+    ('npm update', 10, 'Met à jour les packages JavaScript dans le fichier package.json.'),
+    ('npm uninstall ', 10, 'Désinstalle un package JavaScript du projet.'),
+
+    # Java
+    ('javac', 11, 'Compile le code source Java en un ensemble de fichiers de classes Java.'),
+    ('java', 11, 'Exécute le programme Java à partir des fichiers de classes Java générés.'),
+    ('javadoc', 11, 'Génère une documentation pour les classes Java à partir du code source.'),
+    ('jar', 11, 'Crée une archive JAR à partir des fichiers de classes Java.'),
+    ('jdb', 11, 'Démarre le débogueur Java pour déboguer le code source Java.'),
+    ('jps', 11, 'Affiche les processus Java en cours d''exécution sur la machine.'),
+    ('jstack', 11, ' Affiche la pile d''appels pour un processus Java.'),
+    ('jstat', 11, 'Affiche les statistiques de performance pour un processus Java.'),
+    ('jmap', 11, 'Affiche une carte de mémoire pour un processus Java.'),
+    ('javap', 11, 'Affiche les informations de décompilation pour les fichiers de classes Java.'),
+
+    # Springboot
+    ('spring init', 12, 'Initialise un nouveau projet Spring Boot et crée un fichier pom.xml ou build.gradle pour gérer les dépendances.'),
+    ('mvn spring-boot:run', 12, 'Démarre le serveur de développement Spring Boot pour l''application.'),
+    ('mvn package', 12, 'Compile l''application Spring Boot en un ensemble de fichiers exécutables pour le déploiement.'),
+    ('mvn spring-boot:run -Dspring.profiles.active=dev', 12, 'Démarre le serveur de développement Spring Boot avec le profil dev activé.'),
+    ('mvn clean', 12, 'Nettoie les fichiers générés précédemment dans le dossier de destination.'),
+    ('mvn install', 12, 'Installe l''application Spring Boot dans le référentiel local pour une utilisation ultérieure.'),
+    ('mvn spring-boot:build-image', 12, 'Crée une image Docker pour l''application Spring Boot.'),
+    ('mvn spring-boot:start', 12, 'Démarre l''application Spring Boot comme un processus de fond.'),
+    ('mvn spring-boot:stop', 12, 'Arrête l''application Spring Boot en cours d''exécution.'),
+    ('mvn spring-boot:help', 12, 'Affiche l''aide pour les commandes Spring Boot disponibles avec Maven.'),
+
+
+    # NodeJS
+    ('npm init', 13, 'Initialise un nouveau projet Node.js et crée un fichier package.json.'),
+    ('npm install', 13, 'Installe les dépendances pour le projet Node.js à partir du fichier package.json.'),
+    ('node app.js', 13, 'Exécute l''application Node.js à partir du fichier app.js.'),
+    ('npm start', 13, 'Démarre le serveur de développement pour le projet Node.js.'),
+    ('npm run build', 13, 'Compile le projet Node.js en un ensemble de fichiers pour le déploiement.'),
+    ('npm test', 13, 'Exécute les tests unitaires pour le projet Node.js.'),
+    ('npm run lint', 13, 'Analyse le code pour détecter les erreurs de syntaxe et les pratiques de codage non recommandées.'),
+    ('npm run watch', 13, 'Surveille les modifications du code source et recompile automatiquement le projet Node.js.'),
+    ('npm install -g', 13, 'Installe un package Node.js global sur votre système.'),
+    ('npm update', 13, 'Met à jour les packages Node.js dans le fichier package.json.'),
+
+    # PHP
+    ('php -S localhost:8000', 14, 'Démarre le serveur de développement PHP sur le port 8000.'),
+    ('php -v', 14, 'Affiche la version de PHP installée sur votre système.'),
+    ('php -m', 14, 'Affiche tous les modules PHP installés sur votre système.'),
+    ('php -i', 14, 'Affiche la configuration PHP installée sur votre système.'),
+    ('composer init', 14, 'Initialise un nouveau projet PHP et crée un fichier composer.json pour gérer les dépendances.'),
+    ('composer install', 14, 'Installe les dépendances pour le projet PHP à partir du fichier composer.json.'),
+    ('composer update', 14, 'Met à jour les dépendances pour le projet PHP à partir du fichier composer.json.'),
+    ('phpunit', 14, 'Exécute les tests unitaires pour le projet PHP.'),
+    ('php artisan serve', 14, 'Démarre le serveur de développement Laravel pour l''application.'),
+    ('php artisan make:controller', 14, 'Génère un nouveau contrôleur pour l''application Laravel.'),
+
+    # Laravel
+    ('composer create-project --prefer-dist laravel/laravel', 15, 'Initialise un nouveau projet Laravel et crée une structure de base pour l''application.'),
+    ('php artisan serve', 15, 'Démarre le serveur de développement Laravel pour l''application.'),
+    ('php artisan make:model', 15, 'Génère un nouveau modèle pour l''application Laravel.'),
+    ('php artisan make:migration', 15, 'Génère une nouvelle migration pour la base de données de l''application Laravel.'),
+    ('php artisan make:controller', 15, 'Génère un nouveau contrôleur pour l''application Laravel.'),
+    ('php artisan make:middleware', 15, 'Génère un nouveau middleware pour l''application Laravel.'),
+    ('php artisan migrate', 15, 'Exécute les migrations de base de données pour l''application Laravel.'),
+    ('php artisan tinker ', 15, 'Ouvre un REPL interactif pour l''application Laravel pour exécuter du code PHP et interagir avec la base de données.'),
+    ('php artisan queue:work', 15, 'Exécute la file d''attente pour l''application Laravel.'),
+    ('php artisan route:list', 15, 'Affiche la liste des routes définies pour l''application Laravel.'),
+
+    # Python
+    ('python', 16, 'Lance l''interpréteur Python en mode interactif.'),
+    ('python fichier.py', 16, 'Exécute un script Python stocké dans un fichier.'),
+    ('pip install package', 16, 'Installe un package Python à partir du répertoire de packages Python.'),
+    ('pip uninstall package', 16, 'Désinstalle un package Python.'),
+    ('pip freeze', 16, 'Affiche une liste de tous les packages Python installés sur le système.'),
+    ('virtualenv env', 16, 'Crée un nouvel environnement virtuel Python appelé "env".'),
+    ('source env/bin/activate', 16, 'Active l''environnement virtuel "env".'),
+    ('python manage.py runserver', 16, 'Démarre le serveur de développement Django pour l''application Python.'),
+    ('python manage.py migrate', 16, 'Exécute les migrations de base de données pour l''application Django.'),
+    ('python manage.py createsuperuser', 16, 'Crée un super utilisateur pour l''application Django.'),
+
+    # Django
+    ('django-admin startproject nom_projet', 17, 'Initialise un nouveau projet Django et crée une structure de base pour l''application.'),
+    ('python manage.py runserver', 17, 'Démarre le serveur de développement Django pour l''application Python.'),
+    ('python manage.py startapp nom_app', 17, 'Crée une nouvelle application Django dans le projet.'),
+    ('python manage.py migrate', 17, 'Exécute les migrations de base de données pour l''application Django.'),
+    ('python manage.py createsuperuser', 17, 'Crée un super utilisateur pour l''application Django.'),
+    ('python manage.py makemigrations', 17, 'Génère un nouveau fichier de migration pour la base de données de l''application Django.'),
+    ('python manage.py migrate --fake', 17, 'Marque une migration comme déjà exécutée sans exécuter réellement la migration.'),
+    ('python manage.py shell', 17, 'Ouvre une coquille Python interactive pour l''application Django pour exécuter du code Python et interagir avec la base de données.'),
+    ('python manage.py collectstatic', 17, 'Collecte tous les fichiers statiques de l''application dans un seul répertoire pour le déploiement.'),
+    ('python manage.py test', 17, 'Exécute les tests pour l''application Django.'),
+
+    # React
+    ('npx create-react-app nom_projet', 18, 'Initialise un nouveau projet React et crée une structure de base pour l''application.'),
+    ('npm start', 18, 'Démarre le serveur de développement React pour l''application.'),
+    ('npm run build', 18, 'Construit l''application React pour la production.'),
+    ('npm test', 18, 'Exécute les tests pour l''application React.'),
+    ('npm install package', 18, 'Installe un package React à partir du répertoire de packages NPM.'),
+    ('npm uninstall package', 18, 'Désinstalle un package React.'),
+    ('npm update package', 18, 'Met à jour un package React.'),
+    ('npm audit', 18, 'Vérifie les dépendances de sécurité de l''application React.'),
+    ('npm run eject', 18, 'Extrait la configuration de build pour l''application React.'),
+    ('npm install -g json-server', 18, 'Installe le serveur JSON pour l''application React.'),
+
+    # SQL
+    ('SELECT', 19, 'Récupère des données à partir d''une ou plusieurs tables.'),
+    ('FROM', 19, 'Spécifie la ou les tables à partir desquelles récupérer les données.'),
+    ('WHERE', 19, 'Filtre les résultats en fonction d''une condition spécifiée.'),
+    ('GROUP BY', 19, 'Groupe les résultats par une ou plusieurs colonnes.'),
+    ('HAVING', 19, 'Filtre les résultats de groupe en fonction d''une condition spécifiée.'),
+    ('ORDER BY', 19, 'Trie les résultats par une ou plusieurs colonnes.'),
+    ('JOIN', 19, 'Combine des données à partir de deux ou plusieurs tables en fonction d''une condition de jointure.'),
+    ('UNION', 19, 'Combine les résultats de deux ou plusieurs requêtes SELECT distinctes.'),
+    ('INSERT INTO', 19, 'Ajoute une nouvelle ligne à une table.'),
+    ('UPDATE', 19, 'Modifie les données d''une ou plusieurs lignes dans une table.'),
+    ('DELETE', 19, 'Supprime une ou plusieurs lignes d''une table.'),
+
+    # VueJS
+    ('vue create nom_projet', 20, 'Initialise un nouveau projet Vue.js et crée une structure de base pour l''application.'),
+    ('npm run serve', 20, 'Démarre le serveur de développement Vue.js pour l''application.'),
+    ('npm run build', 20, 'Construit l''application Vue.js pour la production.'),
+    ('npm run test', 20, 'Exécute les tests pour l''application Vue.js.'),
+    ('vue add package', 20, 'Ajoute un package Vue.js à l''application.'),
+    ('vue remove package', 20, 'Supprime un package Vue.js de l''application.'),
+    ('vue inspect', 20, 'Inspecte les dépendances et les configurations de l''application Vue.js.'),
+    ('vue ui', 20, 'Ouvre une interface utilisateur web pour gérer les projets et les plugins Vue.js.'),
+    ('vue serve fichier.vue', 20, 'Exécute un fichier Vue.js isolé dans un serveur de développement.'),
+    ('vue init webpack nom_projet', 20, 'Initialise un nouveau projet Vue.js avec le modèle de configuration Webpack.'),
+
+    # Flutter
+    ('flutter create nom_projet', 21, 'Initialise un nouveau projet Flutter et crée une structure de base pour l''application.'),
+    ('flutter run', 21, 'Démarre l''application Flutter sur un périphérique émulé ou connecté.'),
+    ('flutter build', 21, 'Construit l''application Flutter pour la production.'),
+    ('flutter test', 21, 'Exécute les tests pour l''application Flutter.'),
+    ('flutter packages get', 21, 'Installe les packages définis dans le fichier pubspec.yaml.'),
+    ('flutter packages upgrade', 21, 'Met à jour les packages définis dans le fichier pubspec.yaml.'),
+    ('flutter doctor', 21, 'Vérifie l''état de l''installation Flutter et de ses dépendances.'),
+    ('flutter clean', 21, 'Efface les fichiers temporaires et les caches de l''application Flutter.'),
+    ('flutter format fichier.dart', 21, 'Formate le code source d''un fichier Dart selon les règles de formatage Flutter.'),
+    ('flutter pub run build_runner build', 21, 'Génère le code source pour les annotations et les génériques de build.')
 ;
 
 INSERT INTO documentation.articles
-VALUES (1, 1, 'Presentation Cisco', '<h2>Ontroduction</h2>
+VALUES (1, 1, 'Presentation Cisco', '<h2>Introduction</h2>
 
 <p>Cisco Systems, Inc. est une entreprise américaine spécialisée dans la technologie de l''information. Elle est connue
     pour ses équipements de réseau, notamment ses routeurs et commutateurs de réseau, qui sont utilisés dans de
@@ -523,36 +693,35 @@ VALUES (1, 1, 'Presentation Cisco', '<h2>Ontroduction</h2>
 <p>C# est un langage de programmation populaire et largement utilisé pour le développement d''applications Windows. Il
     dispose d''une grande communauté de développeurs qui contribuent à son dével
 ', ''),
-       (10, 10, 'Presentation Javascript', '<h2>JavaScript est un langage de programmation de scripts principalement employé dans les pages web interactives mais peut également être utilisé dans les serveurs. C''est un langage orienté objet à prototype.</h2>
-<p>
+       (10, 10, 'Presentation Javascript', '<h1>Introduction</h1>
 
-JavaScript est un langage de programmation de scripts principalement employé dans les pages web interactives mais peut également être utilisé dans les serveurs. C''est un langage orienté objet à prototype.
+<p>JavaScript est l''un des langages de programmation les plus populaires utilisés pour développer des applications web interactives. Il est souvent utilisé en tandem avec HTML et CSS pour créer des pages web dynamiques.</p>
 
+<h2>Caractéristiques de JavaScript</h2>
 
+<p>JavaScript est un langage de programmation orienté objet qui permet aux développeurs de créer des applications web riches et interactives. Voici quelques-unes de ses caractéristiques clés:</p>
 
-JavaScript est un langage de programmation qui a été créé afin d''améliorer l''interactivité des pages web. Il est aujourd''hui principalement utilisé pour les sites internet et les applications web. C''est un langage orienté objet à prototype, ce qui signifie qu''il est possible de créer des objets en JavaScript et de les modifier ensuite.
+<ul>
+  <li>Langage de script : JavaScript est un langage de script qui est interprété par le navigateur web. Il peut être utilisé pour ajouter des fonctionnalités dynamiques à une page web, telles que des animations, des effets de défilement, des changements de style et plus encore.</li>
+  <li>Syntaxe similaire à Java : La syntaxe de JavaScript est similaire à celle de Java, ce qui facilite l''apprentissage pour les développeurs Java. Cependant, JavaScript est un langage plus flexible que Java et offre plus de fonctionnalités.</li>
+  <li>Types de données dynamiques : Les variables en JavaScript peuvent être de différents types de données, tels que des nombres, des chaînes de caractères, des tableaux, des objets, etc. Les types de données peuvent également être modifiés dynamiquement, ce qui offre une grande flexibilité pour les développeurs.</li>
+  <li>Bibliothèques et frameworks : JavaScript dispose d''une large gamme de bibliothèques et de frameworks, tels que React, Angular et Vue.js, qui facilitent le développement d''applications web. Ces outils offrent des fonctionnalités préconçues, ce qui permet aux développeurs de gagner du temps et d''améliorer la qualité de leur code.</li>
+</ul>
 
+<h2>Utilisations de JavaScript</h2>
 
+<p>JavaScript est principalement utilisé pour développer des applications web, mais il peut également être utilisé pour créer des applications mobiles, des extensions de navigateur, des applications de bureau et plus encore. Voici quelques exemples d''utilisation de JavaScript:</p>
 
-JavaScript est un langage facile à apprendre pour les développeurs expérimentés, car il partage de nombreuses similitudes avec d''autres langages de programmation populaires. De plus, JavaScript est un langage open source, ce qui signifie que tout le monde peut y contribuer.
+<ul>
+  <li>Interaction utilisateur : JavaScript est utilisé pour ajouter des fonctionnalités interactives aux pages web, telles que des menus déroulants, des boutons cliquables, des diaporamas et plus encore.</li>
+  <li>Validation de formulaire : JavaScript peut être utilisé pour valider les données entrées dans un formulaire, telles que la vérification d''adresses e-mail, la vérification des champs obligatoires et plus encore.</li>
+  <li>Applications web dynamiques : JavaScript est utilisé pour créer des applications web dynamiques, telles que des cartes interactives, des applications de traitement de texte en ligne, des jeux en ligne et plus encore.</li>
+  <li>Applications mobiles : JavaScript peut être utilisé pour créer des applications mobiles hybrides, qui sont des applications mobiles développées à l''aide de technologies web comme HTML, CSS et JavaScript.</li>
+</ul>
 
+<h2>Conclusion</h2>
 
-
-JavaScript est également optimisé pour le référencement web, ce qui le rend idéal pour les développeurs soucieux de l''optimisation de leur site. En effet, les moteurs de recherche accordent une importance particulière aux sites qui utilisent ce langage, car ils savent qu''ils sont généralement plus interactifs et contiennent donc plus d''informations pour les internautes.</p>
-<h2>JavaScript a été créé en 1995 par Brendan Eich alors qu''il travaillait pour Netscape. JavaScript est devenu une spécification du standard ECMA-262 en juin 1997. La dernière version de cette spécification est la 5ème édition publiée en décembre 2009. La 6ème édition est en cours de développement.</h2>
-<p>
-JavaScript est un langage de programmation de scripts principalement employé dans les pages web interactives mais peut également être utilisé côté serveur. C''est un langage orienté objet à prototype. JavaScript est un langage à typage dynamique et faible.
-JavaScript est souvent confondu avec Java. Java est un langage de programmation orienté objet permettant de créer des applications. JavaScript est un langage de script utilisé principalement dans les navigateurs web afin d''améliorer l''interactivité des pages.
-JavaScript est le langage de programmation le plus utilisé au monde. Selon le site StatCounter, JavaScript est utilisé par 92,5% des sites web du monde entier.</p>
-<h2>JavaScript est généralement exécuté par le navigateur web sur le client. Cela permet aux développeurs de créer des pages web interactives et de fournir une meilleure expérience utilisateur. Les scripts JavaScript peuvent également être exécutés sur le serveur à l''aide de Node.js.</h2>
-<p>
-
-JavaScript est un langage de programmation de scripts utilisé principalement pour créer des pages web interactives. Il est exécuté par le navigateur web sur le client, ce qui permet aux développeurs de créer des pages web interactives et de fournir une meilleure expérience utilisateur. Les scripts JavaScript peuvent également être exécutés sur le serveur à l''aide de Node.js.</p>
-<h2>JavaScript est un langage facile à apprendre. De nombreuses ressources sont disponibles sur internet pour apprendre le langage.</h2>
-<p>
-
-JavaScript est un langage de programmation facile à apprendre. De nombreuses ressources sont disponibles sur internet pour apprendre le langage. JavaScript est un langage de programmation populaire et puissant. Il est utilisé par de nombreux développeurs web pour créer des sites interactifs et des applications web.</p>
-
+<p>JavaScript est un langage de programmation puissant et flexible qui est largement utilisé pour développer des applications web interactives. Avec sa syntaxe similaire à Java, ses types de données dynamiques et ses bibliothèques et frameworks, JavaScript offre aux développeurs une grande flexibilité pour créer des applications web
 ', ''),
        (11, 11, 'Presentation Java', '<h2>Introduction</h2>
 
