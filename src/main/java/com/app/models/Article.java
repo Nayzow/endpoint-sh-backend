@@ -11,7 +11,6 @@ public class Article {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String content;
-    private String video;
 
     @ManyToOne
     @JoinColumn(name="id_technology")

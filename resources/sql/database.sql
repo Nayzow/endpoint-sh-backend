@@ -21,6 +21,7 @@ CREATE TABLE documentation.technologies
     id_category BIGINT                NOT NULL,
     name        VARCHAR(50)           NOT NULL,
     image       VARCHAR(200)          NOT NULL,
+    roadmap     VARCHAR(200)          NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (id_category) REFERENCES categories (id)
 );
@@ -29,7 +30,7 @@ CREATE TABLE documentation.commands
 (
     id            BIGINT AUTO_INCREMENT NOT NULL,
     id_technology BIGINT                NOT NULL,
-    name          VARCHAR(100)           NOT NULL,
+    name          VARCHAR(100)          NOT NULL,
     description   VARCHAR(500)          NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (id_technology) REFERENCES documentation.technologies (id)
@@ -41,7 +42,6 @@ CREATE TABLE documentation.articles
     id_technology BIGINT                NOT NULL,
     name          VARCHAR(50)           NOT NULL,
     content       VARCHAR(10000)        NOT NULL,
-    video         VARCHAR(100)          NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (id_technology) REFERENCES technologies (id)
 );
@@ -55,27 +55,30 @@ VALUES (1, 'Development'),
 ;
 
 INSERT INTO documentation.technologies
-VALUES (1, 2, 'Cisco', 'https://drive.google.com/uc?export=view&id=1ipxPHaf9EhQx_XdT-qZMLlmqp-42aG48'),
-       (2, 2, 'Docker', 'https://drive.google.com/uc?export=view&id=1MNBTdXEu-tlbOrzcY3PZlvN7muJvvl76'),
-       (3, 2, 'Kubernetes', 'https://drive.google.com/uc?export=view&id=1Aux5IKU-K-fQOYZSuepantzjgB5dL4hB'),
-       (4, 2, 'Linux', 'https://drive.google.com/uc?export=view&id=1vBNgf7A9mFr4ZmoBHM3vETjn0aTbZ4Zc'),
-       (5, 2, 'Nmap', 'https://drive.google.com/uc?export=view&id=1NPv6L9OosPm7LozAZejxb3uvAsfd7pNM'),
-       (6, 2, 'Win Server', 'https://drive.google.com/uc?export=view&id=1mYgh9h3LABDAq5fWTMy0hjKL9yocBsFu'),
-       (7, 2, 'Azure', 'https://drive.google.com/uc?export=view&id=1xdvJLPJr5A6aWJ0VBHyoJtMQa4QXoMSQ'),
-       (8, 1, 'Angular', 'https://drive.google.com/uc?export=view&id=18xkH0G5oeAvqJuauFblmxN6RZW_Y1MNs'),
-       (9, 1, 'C-Sharp', 'https://drive.google.com/uc?export=view&id=1XesuibYGhNgcE8fFuvZuK5CkdA-rnjsc'),
-       (10, 1, 'Javascript', 'https://drive.google.com/uc?export=view&id=1PGl9xrcLtk955qngHfgJiu6bAFfTrQmb'),
-       (11, 1, 'Java', 'https://drive.google.com/uc?export=view&id=1yK8eKy_TiL4gI2_i8_mV4c_p6Kq9L7yN'),
-       (12, 1, 'Springboot', 'https://drive.google.com/uc?export=view&id=1m86TNk6oXuNsPHG0kaq2HrrW0zf94cM3'),
-       (13, 1, 'NodeJS', 'https://drive.google.com/uc?export=view&id=1BcTvrWJeLL79olAjsbudSLLnIPFN6UvN'),
-       (14, 1, 'PHP', 'https://drive.google.com/uc?export=view&id=17m74_iFvlcLkXqV3yOEJKwcyyPzEa4vP'),
-       (15, 1, 'Laravel', 'https://drive.google.com/uc?export=view&id=1nkx-qvsY993NUmD0Bhb5xP6WsypbJ5dt'),
-       (16, 1, 'Python', 'https://drive.google.com/uc?export=view&id=1n0vsGj6Op2t68oGqZ3e9TallMJashRwU'),
-       (17, 1, 'Django', 'https://drive.google.com/uc?export=view&id=1OcqJy31xX8laR88QDMJLioTTiWZhjw_y'),
-       (18, 1, 'React', 'https://drive.google.com/uc?export=view&id=1WFFi-KHtrPOrXK6LzQYwp7nV6DKS1_jI'),
-       (19, 1, 'SQL', 'https://drive.google.com/uc?export=view&id=1LcA7uyhI4s_Ukt7u8fBjVFAyy3PkLy8R'),
-       (20, 1, 'VueJS', 'https://drive.google.com/uc?export=view&id=1CQic3ktO5gfOLqm_Gw6Xm0fxpx0MsHyM'),
-       (21, 1, 'Flutter', 'https://drive.google.com/uc?export=view&id=1gGQy2yRfUbI830Q9pKO0g6Bwg_geJv4f')
+VALUES (1, 2, 'Cisco', 'https://drive.google.com/uc?export=view&id=1ipxPHaf9EhQx_XdT-qZMLlmqp-42aG48', 'https://drive.google.com/uc?export=view&id='),
+       (2, 2, 'Docker', 'https://drive.google.com/uc?export=view&id=1MNBTdXEu-tlbOrzcY3PZlvN7muJvvl76', 'https://drive.google.com/uc?export=view&id='),
+       (3, 2, 'Kubernetes', 'https://drive.google.com/uc?export=view&id=1Aux5IKU-K-fQOYZSuepantzjgB5dL4hB', 'https://drive.google.com/uc?export=view&id=1dzn_eO2mo2Z1CezOiPqX2OK8tzremqa3'),
+       (4, 2, 'Linux', 'https://drive.google.com/uc?export=view&id=1vBNgf7A9mFr4ZmoBHM3vETjn0aTbZ4Zc', 'https://drive.google.com/uc?export=view&id='),
+       (5, 2, 'Nmap', 'https://drive.google.com/uc?export=view&id=1NPv6L9OosPm7LozAZejxb3uvAsfd7pNM', 'https://drive.google.com/uc?export=view&id='),
+       (6, 2, 'Win Server', 'https://drive.google.com/uc?export=view&id=1mYgh9h3LABDAq5fWTMy0hjKL9yocBsFu', 'https://drive.google.com/uc?export=view&id='),
+       (7, 2, 'Azure', 'https://drive.google.com/uc?export=view&id=1xdvJLPJr5A6aWJ0VBHyoJtMQa4QXoMSQ', 'https://drive.google.com/uc?export=view&id='),
+       (8, 1, 'Angular', 'https://drive.google.com/uc?export=view&id=18xkH0G5oeAvqJuauFblmxN6RZW_Y1MNs', 'https://drive.google.com/uc?export=view&id=1jYkxDcoNhxO-gE8XF21UKA6r22dvmXYu'),
+       (9, 1, 'C-Sharp', 'https://drive.google.com/uc?export=view&id=1XesuibYGhNgcE8fFuvZuK5CkdA-rnjsc', 'https://drive.google.com/uc?export=view&id=1HWIPEn1VXBKmPTa6HklOzZXot0QfkD3W'),
+       (10, 1, 'Javascript', 'https://drive.google.com/uc?export=view&id=1PGl9xrcLtk955qngHfgJiu6bAFfTrQmb', 'https://drive.google.com/uc?export=view&id=1pLmY9agbCJ4NDoUjAaRUQu8g69A0C6Mm'),
+       (11, 1, 'Java', 'https://drive.google.com/uc?export=view&id=1yK8eKy_TiL4gI2_i8_mV4c_p6Kq9L7yN', 'https://drive.google.com/uc?export=view&id=1VXMwNWEl-7aRt4Gorbc__-faQs82wXYG'),
+       (12, 1, 'Springboot', 'https://drive.google.com/uc?export=view&id=1m86TNk6oXuNsPHG0kaq2HrrW0zf94cM3', 'https://drive.google.com/uc?export=view&id=11pU-DUr7rt70mK-5sEqs3npZOpK3ZueD'),
+       (13, 1, 'NodeJS', 'https://drive.google.com/uc?export=view&id=1BcTvrWJeLL79olAjsbudSLLnIPFN6UvN', 'https://drive.google.com/uc?export=view&id=1PPzUqQtpvT-08MyV5KvfMbD6EoKWiO9n'),
+       (14, 1, 'PHP', 'https://drive.google.com/uc?export=view&id=17m74_iFvlcLkXqV3yOEJKwcyyPzEa4vP', 'https://drive.google.com/uc?export=view&id='),
+       (15, 1, 'Laravel', 'https://drive.google.com/uc?export=view&id=1nkx-qvsY993NUmD0Bhb5xP6WsypbJ5dt', 'https://drive.google.com/uc?export=view&id='),
+       (16, 1, 'Python', 'https://drive.google.com/uc?export=view&id=1n0vsGj6Op2t68oGqZ3e9TallMJashRwU', 'https://drive.google.com/uc?export=view&id=1HHJgHNLfzI5QbkhD7oFUWWAWbd-EKRj8'),
+       (17, 1, 'Django', 'https://drive.google.com/uc?export=view&id=1OcqJy31xX8laR88QDMJLioTTiWZhjw_y', 'https://drive.google.com/uc?export=view&id='),
+       (18, 1, 'React', 'https://drive.google.com/uc?export=view&id=1WFFi-KHtrPOrXK6LzQYwp7nV6DKS1_jI', 'https://drive.google.com/uc?export=view&id=1iVMGKAGFhAkwBsYgtXRiEI_f_7CBckQp'),
+       (19, 1, 'SQL', 'https://drive.google.com/uc?export=view&id=1LcA7uyhI4s_Ukt7u8fBjVFAyy3PkLy8R', 'https://drive.google.com/uc?export=view&id='),
+       (20, 1, 'VueJS', 'https://drive.google.com/uc?export=view&id=1CQic3ktO5gfOLqm_Gw6Xm0fxpx0MsHyM', 'https://drive.google.com/uc?export=view&id=1-WV_ew89IeFhZklb6NVqtWlPgKUwtsUq'),
+       (21, 1, 'Flutter', 'https://drive.google.com/uc?export=view&id=1gGQy2yRfUbI830Q9pKO0g6Bwg_geJv4f', 'https://drive.google.com/uc?export=view&id=1dzE2YMO_0i7-cn5EqjGc1fCkDyI31JYa'),
+       (22, 1, 'Typescript', 'https://drive.google.com/uc?export=view&id=1CmEt2vFkPHOSNCb7GgngtXF4QbBxahAa', 'https://drive.google.com/uc?export=view&id=1JJAHU_-Ztj4UdzQHFn12FsaX7jIQtzsr'),
+       (23, 1, 'Golang', 'https://drive.google.com/uc?export=view&id=1TRkk09S2rkjQDIl5OcWANaKiztQ2wMKN', 'https://drive.google.com/uc?export=view&id=1OiPZ1Rj_nKaEprcPAurPBgyCFUiQ2bXM'),
+       (24, 1, 'Android', 'https://drive.google.com/uc?export=view&id=1AZ6hEwDEGz24PJ_gDyxNDBF8sieZTMh1', 'https://drive.google.com/uc?export=view&id=1lWSwb0if3zvriC1KyLF8Q1gxaCiBCCGo')
 ;
 
 INSERT INTO documentation.commands(name, id_technology, description)
@@ -232,7 +235,8 @@ VALUES
     ('dotnet restore', 9, 'Restaure les packages NuGet pour l''application C#.'),
     ('dotnet add package', 9, 'Ajoute un package NuGet à l''application C#.'),
     ('dotnet remove package', 9, 'Supprime un package NuGet de l''application C#.'),
-    ('dotnet watch run', 9, 'Démarre le serveur de développement pour l''application C# et surveille les modifications du code source.'),
+    ('dotnet watch run', 9,
+     'Démarre le serveur de développement pour l''application C# et surveille les modifications du code source.'),
     ('dotnet ef migrations add', 9, 'Ajoute une migration à la base de données pour l''application C#.'),
 
     # Javascript
@@ -241,8 +245,10 @@ VALUES
     ('npm start', 10, 'Démarre le serveur de développement pour le projet JavaScript.'),
     ('npm run build', 10, 'Compile le projet JavaScript en un ensemble de fichiers pour le déploiement.'),
     ('npm test', 10, 'Exécute les tests unitaires pour le projet JavaScript.'),
-    ('npm run lint', 10, 'Analyse le code pour détecter les erreurs de syntaxe et les pratiques de codage non recommandées.'),
-    ('npm run watch', 10, 'Surveille les modifications du code source et recompile automatiquement le projet JavaScript.'),
+    ('npm run lint', 10,
+     'Analyse le code pour détecter les erreurs de syntaxe et les pratiques de codage non recommandées.'),
+    ('npm run watch', 10,
+     'Surveille les modifications du code source et recompile automatiquement le projet JavaScript.'),
     ('npm install -g', 10, 'Installe un package JavaScript global sur votre système.'),
     ('npm update', 10, 'Met à jour les packages JavaScript dans le fichier package.json.'),
     ('npm uninstall ', 10, 'Désinstalle un package JavaScript du projet.'),
@@ -260,12 +266,16 @@ VALUES
     ('javap', 11, 'Affiche les informations de décompilation pour les fichiers de classes Java.'),
 
     # Springboot
-    ('spring init', 12, 'Initialise un nouveau projet Spring Boot et crée un fichier pom.xml ou build.gradle pour gérer les dépendances.'),
+    ('spring init', 12,
+     'Initialise un nouveau projet Spring Boot et crée un fichier pom.xml ou build.gradle pour gérer les dépendances.'),
     ('mvn spring-boot:run', 12, 'Démarre le serveur de développement Spring Boot pour l''application.'),
-    ('mvn package', 12, 'Compile l''application Spring Boot en un ensemble de fichiers exécutables pour le déploiement.'),
-    ('mvn spring-boot:run -Dspring.profiles.active=dev', 12, 'Démarre le serveur de développement Spring Boot avec le profil dev activé.'),
+    ('mvn package', 12,
+     'Compile l''application Spring Boot en un ensemble de fichiers exécutables pour le déploiement.'),
+    ('mvn spring-boot:run -Dspring.profiles.active=dev', 12,
+     'Démarre le serveur de développement Spring Boot avec le profil dev activé.'),
     ('mvn clean', 12, 'Nettoie les fichiers générés précédemment dans le dossier de destination.'),
-    ('mvn install', 12, 'Installe l''application Spring Boot dans le référentiel local pour une utilisation ultérieure.'),
+    ('mvn install', 12,
+     'Installe l''application Spring Boot dans le référentiel local pour une utilisation ultérieure.'),
     ('mvn spring-boot:build-image', 12, 'Crée une image Docker pour l''application Spring Boot.'),
     ('mvn spring-boot:start', 12, 'Démarre l''application Spring Boot comme un processus de fond.'),
     ('mvn spring-boot:stop', 12, 'Arrête l''application Spring Boot en cours d''exécution.'),
@@ -279,7 +289,8 @@ VALUES
     ('npm start', 13, 'Démarre le serveur de développement pour le projet Node.js.'),
     ('npm run build', 13, 'Compile le projet Node.js en un ensemble de fichiers pour le déploiement.'),
     ('npm test', 13, 'Exécute les tests unitaires pour le projet Node.js.'),
-    ('npm run lint', 13, 'Analyse le code pour détecter les erreurs de syntaxe et les pratiques de codage non recommandées.'),
+    ('npm run lint', 13,
+     'Analyse le code pour détecter les erreurs de syntaxe et les pratiques de codage non recommandées.'),
     ('npm run watch', 13, 'Surveille les modifications du code source et recompile automatiquement le projet Node.js.'),
     ('npm install -g', 13, 'Installe un package Node.js global sur votre système.'),
     ('npm update', 13, 'Met à jour les packages Node.js dans le fichier package.json.'),
@@ -289,7 +300,8 @@ VALUES
     ('php -v', 14, 'Affiche la version de PHP installée sur votre système.'),
     ('php -m', 14, 'Affiche tous les modules PHP installés sur votre système.'),
     ('php -i', 14, 'Affiche la configuration PHP installée sur votre système.'),
-    ('composer init', 14, 'Initialise un nouveau projet PHP et crée un fichier composer.json pour gérer les dépendances.'),
+    ('composer init', 14,
+     'Initialise un nouveau projet PHP et crée un fichier composer.json pour gérer les dépendances.'),
     ('composer install', 14, 'Installe les dépendances pour le projet PHP à partir du fichier composer.json.'),
     ('composer update', 14, 'Met à jour les dépendances pour le projet PHP à partir du fichier composer.json.'),
     ('phpunit', 14, 'Exécute les tests unitaires pour le projet PHP.'),
@@ -297,14 +309,17 @@ VALUES
     ('php artisan make:controller', 14, 'Génère un nouveau contrôleur pour l''application Laravel.'),
 
     # Laravel
-    ('composer create-project --prefer-dist laravel/laravel', 15, 'Initialise un nouveau projet Laravel et crée une structure de base pour l''application.'),
+    ('composer create-project --prefer-dist laravel/laravel', 15,
+     'Initialise un nouveau projet Laravel et crée une structure de base pour l''application.'),
     ('php artisan serve', 15, 'Démarre le serveur de développement Laravel pour l''application.'),
     ('php artisan make:model', 15, 'Génère un nouveau modèle pour l''application Laravel.'),
-    ('php artisan make:migration', 15, 'Génère une nouvelle migration pour la base de données de l''application Laravel.'),
+    ('php artisan make:migration', 15,
+     'Génère une nouvelle migration pour la base de données de l''application Laravel.'),
     ('php artisan make:controller', 15, 'Génère un nouveau contrôleur pour l''application Laravel.'),
     ('php artisan make:middleware', 15, 'Génère un nouveau middleware pour l''application Laravel.'),
     ('php artisan migrate', 15, 'Exécute les migrations de base de données pour l''application Laravel.'),
-    ('php artisan tinker ', 15, 'Ouvre un REPL interactif pour l''application Laravel pour exécuter du code PHP et interagir avec la base de données.'),
+    ('php artisan tinker ', 15,
+     'Ouvre un REPL interactif pour l''application Laravel pour exécuter du code PHP et interagir avec la base de données.'),
     ('php artisan queue:work', 15, 'Exécute la file d''attente pour l''application Laravel.'),
     ('php artisan route:list', 15, 'Affiche la liste des routes définies pour l''application Laravel.'),
 
@@ -321,19 +336,25 @@ VALUES
     ('python manage.py createsuperuser', 16, 'Crée un super utilisateur pour l''application Django.'),
 
     # Django
-    ('django-admin startproject nom_projet', 17, 'Initialise un nouveau projet Django et crée une structure de base pour l''application.'),
+    ('django-admin startproject nom_projet', 17,
+     'Initialise un nouveau projet Django et crée une structure de base pour l''application.'),
     ('python manage.py runserver', 17, 'Démarre le serveur de développement Django pour l''application Python.'),
     ('python manage.py startapp nom_app', 17, 'Crée une nouvelle application Django dans le projet.'),
     ('python manage.py migrate', 17, 'Exécute les migrations de base de données pour l''application Django.'),
     ('python manage.py createsuperuser', 17, 'Crée un super utilisateur pour l''application Django.'),
-    ('python manage.py makemigrations', 17, 'Génère un nouveau fichier de migration pour la base de données de l''application Django.'),
-    ('python manage.py migrate --fake', 17, 'Marque une migration comme déjà exécutée sans exécuter réellement la migration.'),
-    ('python manage.py shell', 17, 'Ouvre une coquille Python interactive pour l''application Django pour exécuter du code Python et interagir avec la base de données.'),
-    ('python manage.py collectstatic', 17, 'Collecte tous les fichiers statiques de l''application dans un seul répertoire pour le déploiement.'),
+    ('python manage.py makemigrations', 17,
+     'Génère un nouveau fichier de migration pour la base de données de l''application Django.'),
+    ('python manage.py migrate --fake', 17,
+     'Marque une migration comme déjà exécutée sans exécuter réellement la migration.'),
+    ('python manage.py shell', 17,
+     'Ouvre une coquille Python interactive pour l''application Django pour exécuter du code Python et interagir avec la base de données.'),
+    ('python manage.py collectstatic', 17,
+     'Collecte tous les fichiers statiques de l''application dans un seul répertoire pour le déploiement.'),
     ('python manage.py test', 17, 'Exécute les tests pour l''application Django.'),
 
     # React
-    ('npx create-react-app nom_projet', 18, 'Initialise un nouveau projet React et crée une structure de base pour l''application.'),
+    ('npx create-react-app nom_projet', 18,
+     'Initialise un nouveau projet React et crée une structure de base pour l''application.'),
     ('npm start', 18, 'Démarre le serveur de développement React pour l''application.'),
     ('npm run build', 18, 'Construit l''application React pour la production.'),
     ('npm test', 18, 'Exécute les tests pour l''application React.'),
@@ -358,7 +379,8 @@ VALUES
     ('DELETE', 19, 'Supprime une ou plusieurs lignes d''une table.'),
 
     # VueJS
-    ('vue create nom_projet', 20, 'Initialise un nouveau projet Vue.js et crée une structure de base pour l''application.'),
+    ('vue create nom_projet', 20,
+     'Initialise un nouveau projet Vue.js et crée une structure de base pour l''application.'),
     ('npm run serve', 20, 'Démarre le serveur de développement Vue.js pour l''application.'),
     ('npm run build', 20, 'Construit l''application Vue.js pour la production.'),
     ('npm run test', 20, 'Exécute les tests pour l''application Vue.js.'),
@@ -370,7 +392,8 @@ VALUES
     ('vue init webpack nom_projet', 20, 'Initialise un nouveau projet Vue.js avec le modèle de configuration Webpack.'),
 
     # Flutter
-    ('flutter create nom_projet', 21, 'Initialise un nouveau projet Flutter et crée une structure de base pour l''application.'),
+    ('flutter create nom_projet', 21,
+     'Initialise un nouveau projet Flutter et crée une structure de base pour l''application.'),
     ('flutter run', 21, 'Démarre l''application Flutter sur un périphérique émulé ou connecté.'),
     ('flutter build', 21, 'Construit l''application Flutter pour la production.'),
     ('flutter test', 21, 'Exécute les tests pour l''application Flutter.'),
@@ -378,8 +401,51 @@ VALUES
     ('flutter packages upgrade', 21, 'Met à jour les packages définis dans le fichier pubspec.yaml.'),
     ('flutter doctor', 21, 'Vérifie l''état de l''installation Flutter et de ses dépendances.'),
     ('flutter clean', 21, 'Efface les fichiers temporaires et les caches de l''application Flutter.'),
-    ('flutter format fichier.dart', 21, 'Formate le code source d''un fichier Dart selon les règles de formatage Flutter.'),
-    ('flutter pub run build_runner build', 21, 'Génère le code source pour les annotations et les génériques de build.')
+    ('flutter format fichier.dart', 21,
+     'Formate le code source d''un fichier Dart selon les règles de formatage Flutter.'),
+    ('flutter pub run build_runner build', 21,
+     'Génère le code source pour les annotations et les génériques de build.'),
+
+    # Typescript
+    ('tsc', 22,
+     'La commande principale pour compiler un fichier TypeScript en un fichier JavaScript. La commande peut être utilisée avec des options pour spécifier le fichier d''entrée, le fichier de sortie, etc.'),
+    ('tsc --init', 22,
+     'Créer un fichier de configuration TypeScript appelé tsconfig.json dans votre projet. Ce fichier contient des paramètres qui seront utilisés lors de la compilation.'),
+    ('tsc --watch', 22,
+     'Compiler automatiquement votre projet à chaque fois que vous apportez des modifications à votre code TypeScript.'),
+    ('npm install typescript', 22, 'Installer TypeScript localement dans votre projet.'),
+    ('npm install -g typescript', 22, 'Installer TypeScript globalement sur votre système.'),
+    ('npm install @types/package-name', 22, 'Installer les types de définition pour un package JavaScript spécifique.'),
+    ('tsc --help', 22, 'Afficher une liste complète des options disponibles pour la commande tsc.'),
+    ('ts-node', 22, 'Exécuter des fichiers TypeScript directement sans avoir à les compiler au préalable.'),
+    ('eslint', 22, 'Exécuter des analyses statiques sur votre code TypeScript pour détecter les erreurs potentielles.'),
+    ('jest', 22, 'Exécuter des tests unitaires sur votre code TypeScript.'),
+
+    # Golang
+    ('go build', 23, 'Compiler votre code Go en un exécutable binaire.'),
+    ('go run', 23, 'Compiler et exécute votre code Go en une seule étape'),
+    ('go test', 23, 'Exécuter les tests unitaires dans votre projet Go.'),
+    ('go get', 23, 'Installer des packages Go depuis des dépôts distants.'),
+    ('go mod init', 23, 'Initialiser un nouveau module Go.'),
+    ('go mod tidy', 23, 'Supprimer les packages inutilisés et mettre à jour les dépendances du module.'),
+    ('go mod vendor', 23,
+     'Copier les packages dépendants dans un répertoire vendor, ce qui permet de les inclure avec votre code source.'),
+    ('go vet', 23, 'Exécuter des analyses statiques sur votre code Go pour détecter les erreurs potentielles.'),
+    ('go fmt', 23, 'Formater automatiquement votre code Go selon les conventions de formatage officielles.'),
+    ('go doc', 23, 'Afficher la documentation pour les packages Go installés localement.'),
+
+    # Android
+    ('./gradlew assemble', 24, 'Compiler votre projet Android en un fichier APK.'),
+    ('./gradlew installDebug', 24, 'Installer l''APK de débogage sur votre appareil Android.'),
+    ('./gradlew test', 24, 'Exécuter les tests unitaires dans votre projet Android.'),
+    ('./gradlew lint', 24,
+     'Exécuter des analyses statiques sur votre code Android pour détecter les erreurs potentielles.'),
+    ('./gradlew clean', 24, 'Supprimer les fichiers de compilation et de construction temporaires.'),
+    ('./gradlew build', 24, 'Compiler et assembler votre projet Android en un fichier APK.'),
+    ('adb', 24, 'Outil de ligne de commande Android Debug Bridge pour communiquer avec votre appareil Android.'),
+    ('android avd', 24, 'Outil pour créer, gérer et lancer des émulateurs Android.'),
+    ('sdkmanager', 24, 'Gérer les packages SDK Android installés sur votre système.'),
+    ('javadoc', 24, 'Générer la documentation Java pour votre code source Android.')
 ;
 
 INSERT INTO documentation.articles
@@ -413,7 +479,7 @@ VALUES (1, 1, 'Presentation Cisco', '<h2>Introduction</h2>
     l''information. Ces certifications permettent aux professionnels de démontrer leurs compétences et leur expertise en
     matière de réseaux et de technologie de l''information. Les certifications Cisco sont très prisées par les employeurs
     et peuvent être un atout important pour les professionnels souhaitant évoluer dans leur carrière.</p>
-', ''),
+'),
        (2, 2, 'Presentation Docker', '
 <h2>Introduction</h2>
 
@@ -473,7 +539,7 @@ VALUES (1, 1, 'Presentation Cisco', '<h2>Introduction</h2>
 <ul>
   <li>Plus difficile et long à mettre en place</li>
   <li>Peut être "inutile" ou "trop complexe" pour des petites infrastructures</li>
-</ul>', 'caXHwYC3tq8'),
+</ul>'),
        (3, 3, 'Presentation Kubernetes', '<h2>Introduction</h2>
 
 <p>Kubernetes est un système de gestion de conteneurs open source créé par Google. Il permet de déployer, de scaler et
@@ -492,16 +558,24 @@ VALUES (1, 1, 'Presentation Cisco', '<h2>Introduction</h2>
     des applications. Kubernetes est conçu pour être facile à utiliser et à déployer, et est compatible avec de nombreux
     environnements de cloud et de virtualisation.</p>
 
+<img src="https://drive.google.com/uc?export=view&id=1kR8MYmQQuMIf_XmAT1u2Xs0vclDnZL-l" style="margin-left: 30px;">
+
 <p>Un cluster Kubernetes est un ensemble de nodes exécutant des applications conteneurisées. Ces applications sont
     regroupées dans un package comprenant l''application elle-même, ses dépendances et certains services nécessaires.</p>
+
+<img src="https://drive.google.com/uc?export=view&id=13_jGO4VrK4SciM4f1yq2Y-laZQ9Jgx05" style="margin-left: 70px;">
 
 <h2>Node</h2>
 
 <p>Un node peut être un serveur physique ou virtuel, et peut être un master ou un node d''exécution.</p>
 
+<img src="https://drive.google.com/uc?export=view&id=1hkqYD8UEYLZIuwDRhk2qYFHWsQr8IDnu" style="margin-left: 70px;">
+
 <h2>Pods</h2>
 
 <p>Un pod est un ensemble de conteneurs généralement liés, par exemple un serveur Wordpress et une base de données.</p>
+
+<img src="https://drive.google.com/uc?export=view&id=1XWhyjrggJ3Nu1zA8fMCuQQtZS-AEqjd4" style="margin-left: 70px;">
 
 <h2>Services</h2>
 
@@ -535,7 +609,9 @@ VALUES (1, 1, 'Presentation Cisco', '<h2>Introduction</h2>
 <p>Kubernetes est un outil très utile pour les développeurs et les opérationnels souhaitant déployer et gérer des
     applications conteneurisées de manière efficace. Il permet de faciliter le déploiement et la gestion des
     applications, ainsi que de maximiser leur disponibilité et leur scalabilité.</p>
-', ''),
+
+<img src="https://drive.google.com/uc?export=view&id=1oUSmW-VRkX4f4seJj6ALq5v3MrH0WtYE" style="margin-left: 70px;">
+'),
        (4, 4, 'Presentation Linux', '<h2>Introduction</h2>
 
 <p>Linux est un système d''exploitation open-source basé sur le noyau Unix. Il a été créé par Linus Torvalds en 1991 et
@@ -563,7 +639,7 @@ VALUES (1, 1, 'Presentation Cisco', '<h2>Introduction</h2>
 <p>Linux est un système d''exploitation stable et fiable qui offre une grande flexibilité et personnalisation. Il est
     également gratuit et dispose d''une large communauté de développeurs et d''utilisateurs qui contribuent au
     développement et à l''amélioration de Linux.</p>
-', ''),
+'),
        (5, 5, 'Presentation Nmap', '<h2>Introduction</h2>
 
 <p>nmap est un outil de scanner de réseau open source utilisé pour découvrir les hôtes et les services sur un réseau, ainsi que pour tester la sécurité de ces derniers. Il permet de savoir quels services sont en écoute sur quels ports et de déterminer les versions de ces services.</p>
@@ -583,7 +659,7 @@ VALUES (1, 1, 'Presentation Cisco', '<h2>Introduction</h2>
 <h2>Bénéfices de nmap</h2>
 
 <p>nmap est un outil très utile pour les administrateurs système et les professionnels de la sécurité. Elle leur permet de découvrir et de surveiller les hôtes et les services sur un réseau, ainsi que de tester la sécurité de ces derniers. Elle est également très pratique pour diagnostiquer les problèmes de réseau et pour effectuer des audits de sécurité.</p>
-', ''),
+'),
        (6, 6, 'Presentation Windows Server', '<h2>Introduction</h2>
 
 <p>Windows Server est un système d''exploitation de Microsoft conçu pour les environnements de serveur. Il offre une
@@ -612,7 +688,7 @@ VALUES (1, 1, 'Presentation Cisco', '<h2>Introduction</h2>
 <p>Windows Server offre une grande compatibilité avec les autres produits de Microsoft, ce qui en fait un choix
     populaire pour les entreprises utilisant déjà d''autres produits de Microsoft. Il est également facile à utiliser et
     dispose de nombreuses fonctionnalités pour la gestion des réseaux d''entreprise.</p>
-', ''),
+'),
        (7, 7, 'Presentation Azure', '<h2>Introduction</h2>
 <p>Microsoft Azure est une plateforme de cloud computing qui offre une large gamme de services informatiques en ligne, tels que des machines virtuelles, du stockage, du réseautage, des bases de données, du développement d''applications, de l''analyse de données et de l''IA.</p>
 <h2>Pourquoi utiliser Azure ?</h2>
@@ -626,7 +702,7 @@ VALUES (1, 1, 'Presentation Cisco', '<h2>Introduction</h2>
 <p>Azure est connu pour ses services de machine learning et de intelligence artificielle, tels que Azure Machine Learning et Azure Cognitive Services, qui permettent aux développeurs de créer facilement des applications de traitement du langage naturel, de reconnaissance de la parole et de reconnaissance d''image.</p>
 <h2>En résumé</h2>
 <p>En résumé, Microsoft Azure est une plateforme de cloud computing polyvalente et puissante qui offre un large éventail de services informatiques en ligne pour aider les développeurs à créer, déployer et gérer facilement des applications et des services de manière économique.</p>
-', ''),
+'),
        (8, 8, 'Presentation Angular', '<h2>Introduction</h2>
 
 <p>Angular est un framework open source de développement Web côté client créé par Google en 2010. Il est basé sur le
@@ -668,7 +744,7 @@ VALUES (1, 1, 'Presentation Cisco', '<h2>Introduction</h2>
 
 <p>Ce code importe le composant de base d''Angular et définit un composant appelé "AppComponent" avec un titre de
     "mon-premier-projet". Le sélecteur "app-root" indique que ce composant sera utilisé comme racine de l''application et
-    les templates et styles associés sont définis dans les fichiers de template et de style respectifs.</p>', ''),
+    les templates et styles associés sont définis dans les fichiers de template et de style respectifs.</p>'),
        (9, 9, 'Presentation C-Sharp', '<h2>Introduction</h2>
 
 <p>C# est un langage de programmation orienté objet développé par Microsoft. Il a été créé en 2000 et est utilisé
@@ -692,8 +768,8 @@ VALUES (1, 1, 'Presentation Cisco', '<h2>Introduction</h2>
 
 <p>C# est un langage de programmation populaire et largement utilisé pour le développement d''applications Windows. Il
     dispose d''une grande communauté de développeurs qui contribuent à son dével
-', ''),
-       (10, 10, 'Presentation Javascript', '<h1>Introduction</h1>
+'),
+       (10, 10, 'Presentation Javascript', '<h2>Introduction</h2>
 
 <p>JavaScript est l''un des langages de programmation les plus populaires utilisés pour développer des applications web interactives. Il est souvent utilisé en tandem avec HTML et CSS pour créer des pages web dynamiques.</p>
 
@@ -722,7 +798,7 @@ VALUES (1, 1, 'Presentation Cisco', '<h2>Introduction</h2>
 <h2>Conclusion</h2>
 
 <p>JavaScript est un langage de programmation puissant et flexible qui est largement utilisé pour développer des applications web interactives. Avec sa syntaxe similaire à Java, ses types de données dynamiques et ses bibliothèques et frameworks, JavaScript offre aux développeurs une grande flexibilité pour créer des applications web
-', ''),
+'),
        (11, 11, 'Presentation Java', '<h2>Introduction</h2>
 
 <p>Java est un langage de programmation orienté objet créé par Sun Microsystems (maintenant propriété d''Oracle) en 1995.
@@ -746,7 +822,7 @@ VALUES (1, 1, 'Presentation Cisco', '<h2>Introduction</h2>
 
 <p>Java est un langage de programmation très populaire et largement utilisé dans le monde de l''informatique. Il est
     facile à apprendre et à utiliser, et est compatible avec de nombreuses plateformes. Java est également un langage de
-    programmation stable et sécurisé, ce qui en fait un choix judicieux pour les développeurs professionnels.</p>', ''),
+    programmation stable et sécurisé, ce qui en fait un choix judicieux pour les développeurs professionnels.</p>'),
        (12, 12, 'Presentation Springboot', '<h2>Introduction</h2>
 
 <p>Spring Boot est un framework open source de développement d''applications Java créé par Pivotal. Il vise à simplifier
@@ -788,7 +864,7 @@ public class MonPremierProjetApplication {
 
 <p>Ce code définit une classe d''application Spring Boot appelée "MonPremierProjetApplication" avec la annotation <code>@SpringBootApplication</code>.
     La méthode <code>main</code> est utilisée pour lancer l''application en utilisant la méthode <code>SpringApplication.run</code>.
-</p>', ''),
+</p>'),
        (13, 13, 'Presentation NodeJS', '<h2>Introduction</h2>
 
 <p>Node.js est un environnement d''exécution JavaScript côté serveur. Il permet d''exécuter du code JavaScript en dehors d''un navigateur Web, sur un serveur par exemple.</p>
@@ -824,7 +900,7 @@ server.listen(port, hostname, () =&gt; {
 </code></pre>
 
 <p>Ce code crée un serveur HTTP qui écoute sur le port 3000 et affiche "Hello World" à chaque requête reçue.</p>
-', ''),
+'),
        (14, 14, 'Presentation PHP', '<h2>Introduction</h2>
 <p>PHP est un langage de programmation open source utilisé principalement pour le développement de sites web. Il est
     exécuté côté serveur et permet de générer du contenu dynamique en fonction des requêtes des utilisateurs.</p>
@@ -862,7 +938,7 @@ server.listen(port, hostname, () =&gt; {
 
 <p>PHP est un langage de programmation largement utilisé pour le développement de sites web. Grâce à sa simplicité et à
     sa flexibilité, il est facile à apprendre et à utiliser, mais peut parfois être moins performant que d''autres
-    langages.</p>', ''),
+    langages.</p>'),
        (15, 15, 'Presentation Laravel', '<h2>Introduction</h2>
 
 <p>Laravel est un framework PHP open-source utilisé pour le développement de sites web. Il a été créé en 2011 par Taylor Otwell.</p>
@@ -928,7 +1004,7 @@ class HomeController extends Controller
     <li>Livres sur Laravel: <a href="https://laravel.com/books">https://laravel.com/books</a></li>
     <li>Cours en ligne: <a href="https://laracasts.com/series/laravel-from-scratch-2018">https://laracasts.com/series/laravel-from-scratch-2018</a></li>
 </ul>
-', ''),
+'),
        (16, 16, 'Presentation Python', '<h2>Introduction</h2>
 
 <p>Python est un langage de programmation open source créé en 1991 par Guido van Rossum. Il est conçu pour être facile à
@@ -956,7 +1032,7 @@ class HomeController extends Controller
     Il est également très populaire dans la communauté de la science des données en raison de sa puissance et de sa
     facilité d''utilisation pour l''analyse de données. Enfin, Python dispose d''une grande bibliothèque standard et de
     nombreuses bibliothèques tierces, ce qui en fait un choix judicieux pour les développeurs professionnels.</p>
-', ''),
+'),
        (17, 17, 'Presentation Django', '<h2>Introduction</h2>
 
 <p>Django est un framework de développement web open-source écrit en Python. Il vise à fournir une structure solide pour
@@ -997,7 +1073,7 @@ class HomeController extends Controller
     code Python dans les fichiers de votre application.</p>
 
 <p>Voici un exemple de code de base pour une application Django:</p>
-', ''),
+'),
        (18, 18, 'Presentation React', '<h2>Introduction</h2>
 
 <p>React est un framework open source de développement Web côté client créé par Facebook en 2013. Il est basé sur le
@@ -1043,7 +1119,7 @@ ReactDOM.render(&lt;App /&gt;, document.getElementById(''root''));
     <code>App</code>. Le composant <code>App</code> affiche un message de bienvenue. La méthode
     <code>ReactDOM.render</code> est utilisée pour afficher le composant <code>App</code> dans l''élément HTML avec l''ID
     "root".
-</p>', ''),
+</p>'),
        (19, 19, 'Presentation SQL', '<h2>Introduction</h2>
 
 <p>SQL (Structured Query Language) est un langage de programmation utilisé pour communiquer avec une base de données
@@ -1084,7 +1160,7 @@ ReactDOM.render(&lt;App /&gt;, document.getElementById(''root''));
     <li>Date et heure (DATETIME)</li>
 </ul>
 
-', ''),
+'),
        (20, 20, 'Presentation VueJS', '<h2>Introduction</h2>
 
 <p>Vue.js est un framework open source de développement Web côté client créé en 2014. Il est basé sur le langage de
@@ -1124,7 +1200,7 @@ export default {
 </code></pre>
 
 <p>Ce code définit un composant Vue.js appelé "App" avec un template qui affiche un message de bienvenue. Le script définit les options du composant, telles que son nom. Le style peut être utilisé pour appliquer des styles au composant.</p>
-', ''),
+'),
        (21, 21, 'Presentation Flutter', '<h2>Introduction</h2>
 
 <p>Flutter est un framework open-source de développement d''applications mobiles créé par Google. Il permet de développer
@@ -1187,5 +1263,74 @@ class MyApp extends StatelessWidget {
 </code></pre>
 
 <p>Dans ce code, nous importons le package <code>material.dart</code> de Flutter, qui fournit une bibliothèque de
-    widgets pour créer des interfaces utilisateur cohérentes avec le style Material Design.</p>', '')
+    widgets pour créer des interfaces utilisateur cohérentes avec le style Material Design.</p>'),
+
+       (22, 22, 'Presentation Typescript', '<h2>Introduction</h2>
+
+<p>TypeScript est un langage de programmation open-source développé par Microsoft. Il est considéré comme un sur-ensemble de JavaScript, ce qui signifie qu''il étend les fonctionnalités de JavaScript en ajoutant des types statiques et d''autres fonctionnalités de programmation orientée objet.</p>
+
+<h2>Les fonctionnalités clés de TypeScript</h2>
+
+<ul>
+  <li>Typage statique : TypeScript permet de définir des types pour les variables, les fonctions et les classes, ce qui facilite la détection des erreurs de programmation avant l''exécution du code.</li>
+  <li>Compatibilité avec JavaScript : TypeScript est compatible avec la syntaxe JavaScript, ce qui signifie que les développeurs peuvent intégrer du code JavaScript dans leur application TypeScript.</li>
+  <li>Programmation orientée objet : TypeScript prend en charge la programmation orientée objet en permettant la définition de classes, d''interfaces et d''héritage.</li>
+  <li>Support pour les modules : TypeScript prend en charge les modules, ce qui permet aux développeurs de créer des applications modulaires et faciles à maintenir.</li>
+  <li>Intégration avec les outils de développement : TypeScript est intégré à Visual Studio Code, ce qui facilite le développement et le débogage des applications TypeScript.</li>
+</ul>
+
+<h2>Exemple de code TypeScript</h2>
+
+<p>Voici un exemple simple de code TypeScript qui montre comment déclarer une variable avec un type :</p>
+
+<pre><code>let message: string = "Hello world";
+console.log(message);
+</code></pre>
+
+<p>Dans cet exemple, nous déclarons une variable <code>message</code> de type <code>string</code> et lui attribuons une valeur. Nous utilisons ensuite la fonction <code>console.log()</code> pour afficher la valeur de la variable dans la console.</p>
+
+<h2>Conclusion</h2>
+
+<p>TypeScript est un langage de programmation puissant qui offre des fonctionnalités avancées pour le développement d''applications web et mobiles. En ajoutant des types statiques et d''autres fonctionnalités de programmation orientée objet à JavaScript, TypeScript permet aux développeurs de créer des applications plus robustes et plus faciles à maintenir.</p>
+'),
+       (23, 23, 'Presentation Golang', '<h2>Introduction</h2>
+<p>GoLang (également connu sous le nom de Golang) est un langage de programmation open-source développé par Google. Il est conçu pour être rapide, efficace et facile à utiliser, avec une syntaxe concise et une gestion efficace de la mémoire.</p>
+<h2>Les caractéristiques de GoLang</h2>
+<ul>
+<li>Langage de programmation compilé : GoLang est un langage de programmation compilé, ce qui signifie que le code source est traduit en code machine avant l''exécution.</li>
+<li>Typage statique : GoLang prend en charge le typage statique, ce qui permet de détecter les erreurs de type avant l''exécution du code.</li>
+<li>Gestion efficace de la mémoire : GoLang dispose d''un ramasse-miettes (garbage collector) intégré qui permet de gérer efficacement la mémoire.</li>
+<li>Concurrency : GoLang prend en charge la programmation concurrente, ce qui permet de créer des applications qui peuvent exécuter plusieurs tâches en parallèle.</li>
+<li>Standard library riche : GoLang dispose d''une bibliothèque standard riche qui offre de nombreuses fonctionnalités telles que la manipulation de fichiers, les entrées/sorties, la gestion de réseau, la cryptographie et plus encore.</li>
+</ul>
+<h2>Exemple de code GoLang</h2>
+<p>Voici un exemple simple de code GoLang qui montre comment imprimer un message dans la console :</p>
+<pre><code class="language-go">package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("Hello World !")
+}
+</code></pre>
+<p>Dans cet exemple, nous importons le package `fmt` pour utiliser la fonction `Println` qui permet d''afficher le message "Hello, GoLang!" dans la console.</p>
+<h2>Conclusion</h2>
+<p>GoLang est un langage de programmation moderne qui offre des performances élevées, une gestion efficace de la mémoire et une prise en charge de la programmation concurrente. Avec une syntaxe concise et une bibliothèque standard riche, GoLang est facile à apprendre et à utiliser. Si vous recherchez un langage de programmation efficace et rapide, GoLang est un excellent choix.</p>'),
+       (24, 24, 'Presentation Android', '<h2>Introduction</h2>
+	<p>Android est un système d''exploitation mobile open-source développé par Google. Il est utilisé par des millions d''appareils mobiles dans le monde entier, tels que les smartphones, les tablettes, les montres connectées et les télévisions intelligentes.</p>
+	<h2>L''architecture d''Android</h2>
+	<p>Android utilise une architecture en couches, composée de cinq couches principales :</p>
+	<ul>
+		<li>L''application : la couche supérieure où les applications sont exécutées.</li>
+		<li>Le framework d''application : une couche intermédiaire qui fournit des API pour les applications.</li>
+		<li>Le framework système : une couche intermédiaire qui fournit des services système tels que la gestion des fichiers, la sécurité, la gestion des ressources et la communication interprocessus.</li>
+		<li>Le noyau Linux : une couche basse qui fournit les services de base tels que la gestion de la mémoire, la gestion du processeur et la gestion des périphériques.</li>
+		<li>Le matériel : la couche la plus basse qui comprend les composants matériels tels que l''écran, la caméra, le processeur et la mémoire.</li>
+	</ul>
+	<h2>Les outils de développement pour Android</h2>
+	<p>Pour développer des applications Android, vous pouvez utiliser Android Studio, qui est l''environnement de développement intégré officiel pour Android. Il offre des fonctionnalités telles que l''éditeur de code, le débogueur, le compilateur, l''émulateur Android et bien plus encore.</p>
+	<h2>Les langages de programmation pour Android</h2>
+	<p>Android prend en charge plusieurs langages de programmation, notamment Java, Kotlin et C++. Java est le langage de programmation historique pour Android, tandis que Kotlin est de plus en plus populaire en raison de sa concision et de sa sécurité accrues.</p>
+	<h2>Conclusion</h2>
+	<p>Android est un système d''exploitation mobile populaire utilisé par des millions d''utilisateurs dans le monde entier. Il offre une architecture en couches avec une variété d''outils et de langages de programmation pour développer des applications. Si vous souhaitez développer des applications mobiles, Android est une plateforme intéressante à explorer.</p>')
 ;
