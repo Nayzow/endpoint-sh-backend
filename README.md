@@ -13,13 +13,7 @@ Lien de l'application web Angular pour afficher les données : https://github.co
 git clone https://github.com/Nayzow/endpoint-sh-api
 ```
 
-#### 2. Créer une base de donnée avec le fichier sql :
-
-```bash
-resources/sql/database.sql
-```
-
-#### 3. Installation
+#### 2. Installation
 
 #### Installation avec Maven
 
@@ -40,13 +34,13 @@ mvn spring-boot:run
 #### 1. Build l'image Docker
 
 ```bash
-docker build -t endpoint-sh-api .
+docker build -t endpoint-sh-backend .
 ```
 
 ####  2. Run le conteneur Docker
 
 ```bash
-docker run --name dns-services-api -p 8080:8080 -d endpoint-sh-api
+docker run --name endpoint-sh-backend -p 8080:8080 -d endpoint-sh-backend
 ```
 
 ### Routes de l'application
